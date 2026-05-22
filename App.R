@@ -67,11 +67,11 @@ make_conn <- function() {
   tryCatch(
     dbConnect(
       RPostgres::Postgres(),
-      host     = get_credential("DB_HOST",     "db_host"),
-      port     = as.integer(get_credential("DB_PORT", "db_port", "5432")),
-      dbname   = get_credential("DB_NAME",     "db_name"),
-      user     = get_credential("DB_USER",     "db_user"),
-      password = get_credential("DB_PASSWORD", "db_password")
+      host     = Sys.getenv("DB_HOST",     "db_host"),
+      port     = as.integer(Sys.getenv("DB_PORT", "db_port", "5432")),
+      dbname   = Sys.getenv("DB_NAME",     "db_name"),
+      user     = Sys.getenv("DB_USER",     "db_user"),
+      password = Sys.getenv("DB_PASSWORD", "db_password")
     ),
     error = function(e) { message("DB connection failed: ", conditionMessage(e)); NULL }
   )
