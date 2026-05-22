@@ -433,7 +433,7 @@ check_s3_url <- function(url) {
 }
 
 run_url_validation <- function(image_links) {
-  meta_cols <- c("cce_id", "boxes_pula_id", "position")
+  meta_cols <- c("cce_id", "boxes_pula_id", "uai", "position")
   url_cols  <- setdiff(names(image_links), meta_cols)
   image_links %>%
     pivot_longer(cols = all_of(url_cols), names_to = "question_id", values_to = "url") %>%
@@ -716,8 +716,7 @@ ui <- dashboardPage(
   dashboardHeader(
     title = tags$span(
       style = "font-family:'Space Mono',monospace;font-size:.88rem;letter-spacing:.03em;",
-      "🌾 CropCut Dashboard"
-    ),
+      "🌾 CropCut Dashboard"),
     titleWidth = 250
   ),
 
