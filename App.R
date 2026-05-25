@@ -287,7 +287,7 @@ build_missing <- function(css, wet, dry) {
                   cond_col = "q_problem", cond_type = "contains", cond_val = "weeds",
                   section = "CSS"),
     check_missing(css, "q_flood_evidence_photo",
-                  cond_col = "q_problem", cond_type = "contains", cond_val = "flood",
+                  cond_col = "q_has_flood_evidence", cond_type = "equal", cond_val = "yes",
                   section = "CSS"),
     check_missing(css, "q_pests_or_diseases_evidence_photo",
                   cond_col = "q_problem", cond_type = "contains", cond_val = "pest",
