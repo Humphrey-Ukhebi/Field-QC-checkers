@@ -1632,7 +1632,7 @@ server <- function(input, output, session) {
               extensions = "Buttons",
               options    = list(pageLength = 25, scrollX = TRUE, dom = "Bfrtip",
                                 buttons = c("copy","csv")),
-              class = "table-striped table-hover table-sm") %>%
+              class = "table-hover table-sm") %>%
       formatStyle("Days Since Submission",
                   backgroundColor = styleInterval(
                     c(thresh - 0.01, thresh * 2),
@@ -1735,7 +1735,7 @@ server <- function(input, output, session) {
                                 buttons = c("copy","csv"),
                                 columnDefs = list(list(targets = 7,
                                                        render = JS("function(d){return d?'<a href=\"'+d+'\" target=\"_blank\" style=\"color:#60a5fa;\">🔗 view</a>':'—';}")))),
-              escape = FALSE, class = "table-sm table-striped table-hover") %>%
+              escape = FALSE, class = "table-sm table-hover") %>%
       formatStyle("status",         backgroundColor = styleEqual(names(status_bg), unname(status_bg)), color = "#f8fafc") %>%
       formatStyle("accessible",     color = styleEqual(c(TRUE, FALSE), c("#6ee7b7","#fca5a5")), fontWeight = "bold") %>%
       formatStyle("bucket_ok",      backgroundColor = styleEqual(c(TRUE, FALSE), c("transparent","#78350f")))
@@ -1767,7 +1767,7 @@ server <- function(input, output, session) {
     req(enum_summary())
     datatable(enum_summary(), rownames = FALSE,
               options = list(pageLength = 25, scrollX = TRUE),
-              class   = "table-sm table-striped table-hover") %>%
+              class   = "table-sm table-hover") %>%
       formatStyle("Total Missing",
                   background         = styleColorBar(range(enum_summary()$`Total Missing`), "#7f1d1d"),
                   backgroundSize     = "100% 90%",
@@ -1803,7 +1803,7 @@ server <- function(input, output, session) {
       arrange(desc(`Total Missing`))
     datatable(proj_summary, rownames = FALSE,
               options = list(pageLength = 25, scrollX = TRUE),
-              class   = "table-sm table-striped table-hover")
+              class   = "table-sm table-hover")
   })
   
   # ════════════════════════════════════════════════════════════════════════════
@@ -2020,7 +2020,7 @@ server <- function(input, output, session) {
       extensions = "Buttons",
       options    = list(pageLength = 20, scrollX = TRUE, dom = "Bfrtip",
                         buttons = c("copy","csv")),
-      class = "table-sm table-striped table-hover"
+      class = "table-sm table-hover"
     ) %>%
       formatRound("box_distance_m", digits = 1) %>%
       formatStyle("box_distance_m",
